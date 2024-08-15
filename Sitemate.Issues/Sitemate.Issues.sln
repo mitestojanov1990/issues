@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitemate.Issues.Server", "S
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "sitemate.issues.client", "sitemate.issues.client\sitemate.issues.client.esproj", "{77BAE765-AF6D-4F1B-93EA-4C5FE1ABB91C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitemate.Issues.Data", "Sitemate.Issues.Data\Sitemate.Issues.Data.csproj", "{46C13096-3F52-40D6-A5D8-636D2F164BC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitemate.Issues.Services", "SItemate.Issues.Services\Sitemate.Issues.Services.csproj", "{85F298C9-E618-417F-B909-AD1A4EB71ABC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,14 @@ Global
 		{77BAE765-AF6D-4F1B-93EA-4C5FE1ABB91C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77BAE765-AF6D-4F1B-93EA-4C5FE1ABB91C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{77BAE765-AF6D-4F1B-93EA-4C5FE1ABB91C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{46C13096-3F52-40D6-A5D8-636D2F164BC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46C13096-3F52-40D6-A5D8-636D2F164BC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46C13096-3F52-40D6-A5D8-636D2F164BC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46C13096-3F52-40D6-A5D8-636D2F164BC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85F298C9-E618-417F-B909-AD1A4EB71ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85F298C9-E618-417F-B909-AD1A4EB71ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85F298C9-E618-417F-B909-AD1A4EB71ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85F298C9-E618-417F-B909-AD1A4EB71ABC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
