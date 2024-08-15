@@ -1,0 +1,44 @@
+version: '3.4'
+
+services:
+  issues-api:
+    image: issues-api
+    build:
+      context: .
+      dockerfile: Sitemate.Issues.Server/Dockerfile
+    ports:
+      - "5100:80"  # Adjust the ports as needed
+      - "7100:443"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80;https://+:443
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=!v3rys3cur3d
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp1.pfx
+    volumes:
+      - ./aspnetapp1.pfx:/https/aspnetapp1.pfx:ro
+      - ./keys:/keys
+
+  issues-web:
+    image: issues-web
+    build:
+      context: .
+      dockerfile: sitemate.issues.client/Dockerfile
+    ports:
+      - "5173:80"
+      - "7173:443"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - VITE_APP_API_URL=https://issues-api:443/
+      - ASPNETCORE_URLS=http://+:80;https://+:443
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=!v3rys3cur3d
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp2.pfx
+    depends_on:
+      - issues-api
+    volumes:
+      - ./aspnetapp2.pfx:/https/aspnetapp2.pfx:ro
+      - ./keys:/keys
+
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"

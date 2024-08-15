@@ -1,7 +1,5 @@
-import { fileURLToPath, URL } from "node:url";
-
 import { defineConfig } from "vite";
-import plugin from "@vitejs/plugin-react";
+import react from "@vitejs/plugin-react";
 import fs from "fs";
 import path from "path";
 import child_process from "child_process";
@@ -37,24 +35,17 @@ if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
   }
 }
 
-const target = env.ASPNETCORE_HTTPS_PORT
-  ? `https://localhost:${env.ASPNETCORE_HTTPS_PORT}`
-  : env.ASPNETCORE_URLS
-  ? env.ASPNETCORE_URLS.split(";")[0]
-  : "https://localhost:7206";
-
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [plugin()],
+  plugins: [react()],
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
+      "@": path.resolve(__dirname, "./src"),
     },
   },
   server: {
     proxy: {
       "^/issues": {
-        target,
+        target: process.env.VITE_APP_API_URL || "https://localhost:5100",
         secure: false,
       },
     },
