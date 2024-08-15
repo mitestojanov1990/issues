@@ -19,3 +19,7 @@ dotnet ef migrations add Initial --project ../Sitemate.Issues.Data/ --context Is
 ```
 dotnet ef database update --project ../Sitemate.Issues.Data/ --context IssuesDbContext
 ```
+
+# Frontend
+
+You can run the frontend using npm run dev, or pnpm dev
