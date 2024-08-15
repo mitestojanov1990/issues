@@ -5,10 +5,7 @@ import path from "path";
 import child_process from "child_process";
 import { env } from "process";
 
-const baseFolder =
-  env.APPDATA !== undefined && env.APPDATA !== ""
-    ? `${env.APPDATA}/ASP.NET/https`
-    : `${env.HOME}/.aspnet/https`;
+const baseFolder = path.resolve(__dirname, "B:/Work/sitemate/Sitemate.Issues");
 
 const certificateName = "sitemate.issues.client";
 const certFilePath = path.join(baseFolder, `${certificateName}.pem`);
